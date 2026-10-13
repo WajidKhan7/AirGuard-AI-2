@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AirGuard AI</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <h1>AirGuard AI</h1>
+    </div>
+    <nav class="tabs" id="mode-tabs">
+      <button class="tab-btn active" data-mode="train">Train</button>
+      <button class="tab-btn" data-mode="predict">Predict</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================ TRAIN ============================ -->
+    <section id="panel-train" class="panel active">
+      <div id="train-upload" class="card">
+        <h2>1. Select a dataset</h2>
+        <p class="muted">Any air-quality CSV — wide format (one column per pollutant) or
+          long/melted format (Date, City, Type, Count) are both detected automatically.</p>
+        <div class="dropzone" id="train-dropzone">
+          <input type="file" id="train-file-input" accept=".csv" hidden />
+          <p><strong>Click to choose a CSV</strong> or drag &amp; drop it here</p>
+          <p class="filename" id="train-filename"></p>
+        </div>
+        <button id="train-start-btn" class="btn primary" disabled>Start Training</button>
+      </div>
+
+      <div id="train-progress" class="card hidden">
+        <h2>Training in progress…</h2>
+        <p class="muted" id="train-progress-file"></p>
+        <ol class="status-list" id="train-status-list"></ol>
+      </div>
+
+      <div id="train-error" class="card error-card hidden">
+        <h2>Training Error</h2>
+        <pre id="train-error-text"></pre>
+        <button class="btn" id="train-error-retry">Try another dataset</button>
+      </div>
+
+      <div id="train-results" class="results hidden"></div>
+    </section>
+
+    <!-- =========================== PREDICT =========================== -->
+    <section id="panel-predict" class="panel">
+      <div id="predict-model-banner" class="card"></div>
+
+      <div id="predict-upload" class="card">
+        <h2>Select a new CSV to classify</h2>
+        <div class="dropzone" id="predict-dropzone">
+          <input type="file" id="predict-file-input" accept=".csv" hidden />
+          <p><strong>Click to choose a CSV</strong> or drag &amp; drop it here</p>
+          <p class="filename" id="predict-filename"></p>
+        </div>
+        <button id="predict-start-btn" class="btn primary" disabled>Run Prediction</button>
+      </div>
+
+      <div id="predict-progress" class="card hidden">
+        <h2>Running prediction…</h2>
+        <ol class="status-list" id="predict-status-list"></ol>
+      </div>
+
+      <div id="predict-error" class="card error-card hidden">
+        <h2>Prediction Error</h2>
+        <pre id="predict-error-text"></pre>
+        <button class="btn" id="predict-error-retry">Try again</button>
+      </div>
+
+      <div id="predict-results" class="results hidden"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>AirGuard AI — local desktop-grade ML, served over a local web page. No data leaves this machine.</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+class,precision,recall,f1,support
+Good,1.0,1.0,1.0,114
+Hazardous,1.0,1.0,1.0,95
+Moderate,1.0,1.0,1.0,730
+Unhealthy,1.0,1.0,1.0,1315
+Unhealthy for Sensitive Groups,1.0,1.0,1.0,630
+Very Unhealthy,1.0,1.0,1.0,393
+macro avg,1.0,1.0,1.0,3277
+weighted avg,1.0,1.0,1.0,3277

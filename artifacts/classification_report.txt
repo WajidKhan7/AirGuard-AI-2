@@ -1,0 +1,32 @@
+Final model: Random Forest (tuned)
+
+Test metrics:
+{
+  "accuracy": 1.0,
+  "precision_macro": 1.0,
+  "recall_macro": 1.0,
+  "f1_macro": 1.0,
+  "precision_weighted": 1.0,
+  "recall_weighted": 1.0,
+  "f1_weighted": 1.0
+}
+
+Per-class report:
+                         class  precision  recall  f1  support
+                          Good        1.0     1.0 1.0      114
+                     Hazardous        1.0     1.0 1.0       95
+                      Moderate        1.0     1.0 1.0      730
+                     Unhealthy        1.0     1.0 1.0     1315
+Unhealthy for Sensitive Groups        1.0     1.0 1.0      630
+                Very Unhealthy        1.0     1.0 1.0      393
+                     macro avg        1.0     1.0 1.0     3277
+                  weighted avg        1.0     1.0 1.0     3277
+
+Confusion matrix:
+                                       Predicted Good  Predicted Hazardous  Predicted Moderate  Predicted Unhealthy  Predicted Unhealthy for Sensitive Groups  Predicted Very Unhealthy
+Actual Good                                       114                    0                   0                    0                                         0                         0
+Actual Hazardous                                    0                   95                   0                    0                                         0                         0
+Actual Moderate                                     0                    0                 730                    0                                         0                         0
+Actual Unhealthy                                    0                    0                   0                 1315                                         0                         0
+Actual Unhealthy for Sensitive Groups               0                    0                   0                    0                                       630                         0
+Actual Very Unhealthy                               0                    0                   0                    0                                         0                       393
